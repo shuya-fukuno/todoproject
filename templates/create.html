@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'todo/create.css' %}">
+</head>
+
+<h1 class="title">新規作成</h1>
+
+<form action="" method="POST">
+    <table>
+        <form action="" method="POST">{% csrf_token %}
+        <tr class="left"><td>タイトル：</td><td>{{ form.title }}</td></tr>
+        <tr><td class="left">内容：</td><td>{{ form.memo }}</td></tr>
+        <tr><td class="left">優先順位：</td><td><h5>{{ form.priority }}</h5></td></tr>
+        <tr><td class="left">期限：</td><td>{{ form.duedate }}<br>※期限はyyyy-mm-dd方式で入力すること</td></tr>
+        <tr><td><h4 class="create_buttom"><input class="butttom" type="submit" value="create">
+        </form></h4></td></tr>    
+    </table>
+</form>
+{% endblock content %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">TodoList</h1>
+      <p class="lead">Todolistを作成して生産的な毎日を過ごしましょう</p>
+    </div>
+</div>
+{% endblock header %}
+
+{% block content %}
+{% load static %}
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'todo/delete.css' %}">
+</head>
+<div class="delete_message">削除しますか？</div>
+
+<form class="button_1" action="" method="POST">{% csrf_token %}
+  <input type="submit" value="YES">
+</form>
+
+<a class="button_2" href="{% url 'list' %}">
+  <input type="submit" value="NO">
+</a>
+
+{% endblock content %}
